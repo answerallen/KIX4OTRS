@@ -1,0 +1,144 @@
+# --
+# AgentITSMWorkOrderZoom.tt - provides HTML form for AgentITSMWorkOrderZoom
+# Copyright (C) 2001-2016 OTRS AG, http://otrs.com/
+# KIX4OTRS-Extensions Copyright (C) 2006-2016 c.a.p.e. IT GmbH, http://www.cape-it.de
+#
+# written/edited by:
+# * Dorothea(dot)Doerffel(at)cape(dash)it(dot)de
+#
+# --
+# $Id$
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+# KIX4OTRS-capeIT
+[% RenderBlockStart("Header") %]
+# EO KIX4OTRS-capeIT
+<div class="MainBox ARIARoleMain">
+    <div class="ClearLeft"></div>
+    <div class="Headline">
+        <div class="Flag" title="[% Translate(Data.WorkOrderState) | html %]">
+            <span class="[% Data.WorkOrderStateSignal | html %]">[% Translate(Data.WorkOrderState) | html %]</span>
+        </div>
+        <h1 title="[% Config("ITSMWorkOrder::Hook") %]: [% Data.ChangeNumber | html %]-[% Data.WorkOrderNumber | html %] &ndash; [% Data.WorkOrderTitle | html %]">
+            [% Config("ITSMWorkOrder::Hook") %]: [% Data.ChangeNumber | html %]-[% Data.WorkOrderNumber | html %] <span>&mdash;</span> [% Data.WorkOrderTitle | truncate(70) | html %]
+        </h1>
+    </div>
+
+    <div class="LayoutFixedSidebar SidebarLast">
+        <div class="SidebarColumn">
+# KIX4OTRS-capeIT
+# moved content for change info into separate module
+[% RenderBlockStart("Sidebar") %]
+          [% Data.KIXSidebarContent %]
+[% RenderBlockEnd("Sidebar") %]
+# EO KIX4OTRS-capeIT
+        </div>
+
+        <div class="ContentColumn">
+            <div class="ControlRow"></div>
+            <div class="ActionRow">
+                <ul class="Actions">
+[% RenderBlockStart("Menu") %]
+[% RenderBlockStart("MenuItem") %]
+                    <li>
+                        <a href="[% Env("Baselink") %][% Data.Link | Interpolate %]" id="Menu[% Data.MenuID | html %]" class="[% Data.MenuClass | html %]" title="[% Translate(Data.Description) | html %]">[% Translate(Data.Name) | html %]</a>
+                    </li>
+
+[% RenderBlockStart("ShowConfirmationDialog") %]
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+/*global ITSM: true */
+    ITSM.Agent.ConfirmationDialog.BindConfirmationDialog({
+        ElementID:                  'Menu[% Data.MenuID %]',
+        ElementSelector:            '[% Data.ElementSelector | Interpolate %]',
+        DialogContentQueryString:   '[% Data.DialogContentQueryString | Interpolate %]',
+        ConfirmedActionQueryString: '[% Data.ConfirmedActionQueryString | Interpolate %]',
+        DialogTitle:                '[% Data.DialogTitle | Interpolate %]',
+        TranslatedText:             {
+            Yes: [% Translate("Yes") | JSON %],
+            No:  [% Translate("No") | JSON %],
+            Ok:  [% Translate("Ok") | JSON %]
+        }
+    });
+//]]></script>
+[% END %]
+[% RenderBlockEnd("ShowConfirmationDialog") %]
+
+[% RenderBlockEnd("MenuItem") %]
+[% RenderBlockEnd("Menu") %]
+                </ul>
+            </div>
+
+# KIX4OTRS-capeIT
+# moved content for wordorder graph, change info and linked objects into separate tab
+# EO KIX4OTRS-capeIT
+
+# KIX4OTRS-capeIT
+# initalize tab view
+            <div id="ContentItemTabs">
+                <ul>
+[% RenderBlockStart("DataTabDataLink") %]
+                    <li title="[% Translate(Data.Description) | html %]"><a href="[% Env("Baselink") %][% Data.Link %]" title="[% Data.Description | html %]">[% Translate(Data.Label) | html %] [% Data.LabelCount | html %]</a></li>
+[% RenderBlockEnd("DataTabDataLink") %]
+[% RenderBlockStart("DataTabDataPreloaded") %]
+                    <li title="[% Translate(Data.Description) | html %]"><a href="#[% Data.Anchor %]" title="[% Data.Description | html %]">[% Translate(Data.Label) | html %] [% Data.LabelCount | html %]</a></li>
+[% RenderBlockEnd("DataTabDataPreloaded") %]
+                </ul>
+[% RenderBlockStart("DataTabContentPreloaded") %]
+                <div id="[% Data.Anchor %]">
+                    [% Data.ContentStrg %]
+                </div>
+[% RenderBlockEnd("DataTabContentPreloaded") %]
+# EO KIX4OTRS-capeIT
+            </div>
+        </div>
+        <div class="Clear"></div>
+    </div>
+</div>
+# KIX4OTRS-capeIT
+[% RenderBlockEnd("Header") %]
+# EO KIX4OTRS-capeIT
+
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+    $('ul.Actions a.AsPopup').bind('click', function (Event) {
+    Core.UI.Popup.OpenPopup ($(this).attr('href'), 'Action');
+    return false;
+    });
+
+    $('ul.Actions a.HistoryBack').bind('click', function (Event) {
+        history.back();
+        return false;
+    });
+
+# KIX4OTRS-capeIT
+    // disable ajax/tab caching
+    $.ajaxSetup({ cache: false });
+
+    $('#ContentItemTabs').tabs({
+        create: function(event, ui) {
+            $(this).find('ul > li > a').attr('title', '');
+            $(this).find('div').html('<span class="AJAXLoader"></span>');
+        },
+        beforeActivate: function(event, ui) {
+            $(this).find('div').html('<span class="AJAXLoader"></span>');
+            $(window).unbind();
+        },
+        active: [% Data.SelectedTab %],
+        beforeLoad: function( event, ui ) {
+            ui.ajaxSettings.cache = false,
+            ui.ajaxSettings.error = function( xhr, status, index, anchor ) {
+                $(anchor.hash)
+                    .html("Couldn't load this tab. We'll try to fix this as soon as possible.");
+            }
+        }
+    });
+
+    Core.UI.InitWidgetActionToggle();
+# EO KIX4OTRS-capeIT
+//]]></script>
+[% END %]

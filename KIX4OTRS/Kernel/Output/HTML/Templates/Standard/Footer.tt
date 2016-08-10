@@ -1,0 +1,39 @@
+# --
+# Copyright (C) 2001-2016 OTRS AG, http://otrs.com/
+# KIX4OTRS-Extensions Copyright (C) 2006-2016 c.a.p.e. IT GmbH, http://www.cape-it.de
+#
+# written/edited by:
+# * Dorothea(dot)Doerffel(at)cape(dash)it(dot)de
+#
+# --
+# $Id$
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+
+<div id="Footer" class="ARIARoleContentinfo">
+[% RenderBlockStart("Banner") %]
+    <a href="http://www.otrs.com/" title="[% Config("Product") %] [% Config("Version") %]" target="_blank">
+        [% Translate("Powered by") | html %] [% Config("Product") %]
+    </a>
+# KIX4OTRS-capeIT
+    <a href="http://www.cape-it.de/" target="_blank">[% Translate("and") | html %] KIX4OTRS</a>
+# EO KIX4OTRS-capeIT
+[% RenderBlockEnd("Banner") %]
+# KIX4OTRS-capeIT
+    <div class="TopOfPage">
+        <a href="#Top">[% Translate("Top of page") | html %]<i class="fa fa-arrow-circle-o-up"></i></a>
+    </div>
+    <div class="Clear">
+    </div>
+# EO KIX4OTRS-capeIT
+    </div>
+
+[% InsertTemplate("FooterJS.tt") %]
+
+    </div>
+</body>
+</html>

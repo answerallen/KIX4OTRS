@@ -1,0 +1,85 @@
+# --
+# AgentITSMChangeZoomTabOverview.tt - provides HTML for AgentITSMChangeZoomTabOverview.pm
+# Copyright (C) 2006-2016 c.a.p.e. IT GmbH, http://www.cape-it.de
+#
+# written/edited by:
+# * Dorothea(dot)Doerffel(at)cape(dash)it(dot)de
+#
+# --
+# $Id$
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+[% RenderBlockStart("TabContent") %]
+<div class="MainBox ARIARoleMain">
+    <div class="WidgetBox SpacingTop Expanded">
+        <div class="LightRow Header">
+            <div class="WidgetAction Toggle">
+                <a href="#" title="[% Translate("Show or hide the content.") | html %]">
+                    <span></span>
+                </a>
+            </div>
+            <h2>[% Translate("Workorder") | html %] - [% Data.WorkOrderTitle | truncate(70) | html %]</h2>
+        </div>
+        <div class="Content">
+            <fieldset class="TableLike FixedLabelSmall">
+                <label>
+                    <strong>[% Translate("ITSMChange") | html %]</strong>
+                </label>
+                <div class="Value">
+                    <div class="Flag Small" title="[% Translate(Data.ChangeState) | html %]">
+                        <span class="[% Data.ChangeStateSignal | html %]">[% Translate(Data.ChangeState) | html %]</span>
+                    </div>
+                    [% Data.ChangeNumber | html %]
+                    <a href="[% Env("Baselink") %]Action=AgentITSMChangeZoom;ChangeID=[% Data.ChangeID | uri %]">[% Data.ChangeTitle | truncate(70) | html %]</a>
+                </div>
+                <div class="Clear"></div>
+                <label>
+                    <strong>[% Translate("Workorder") | html %]</strong>
+                </label>
+                <div class="Value">
+                    <div class="Flag Small" title="[% Translate(Data.WorkOrderState) | html %]">
+                        <span class="[% Data.WorkOrderStateSignal | html %]">[% Translate(Data.WorkOrderState) | html %]</span>
+                    </div>
+                    [% Data.ChangeNumber | html %] - [% Data.WorkOrderNumber | html %]
+                    <strong>[% Data.WorkOrderTitle | truncate(70) | html %]</strong>
+                </div>
+                <div class="Clear"></div>
+                <label title="[% Translate("Instruction") | html %]">[% Translate("Instruction") | html %]: </label>
+                <div class="Field RTEContent">[% Data.Instruction %]</div>
+                <div class="Clear"></div>
+                <label title="[% Translate("Report") | html %]">[% Translate("Report") | html %]: </label>
+                <div class="Field RTEContent">[% Data.Report %]</div>
+                <div class="Clear"></div>
+                <label title="[% Translate("Attachment") | html %]">[% Translate("Attachment") | html %]:</label>
+                <div class="Field">
+[% RenderBlockStart("AttachmentRow") %]
+                    <span class="DownloadAttachment" title="[% Translate("Download Attachment") | html %]">
+                        <a href="[% Env("Baselink") %]Action=[% Env("Action") %];Subaction=DownloadAttachment;Filename=[% Data.Filename | uri %];WorkOrderID=[% Data.WorkOrderID | uri %]">[% Data.Filename | html %]</a>, [% Data.Filesize | html %]
+                    </span><br />
+[% RenderBlockEnd("AttachmentRow") %]
+                </div>
+                <div class="Clear"></div>
+                <label>[% Translate("Attachment") | html %] ([% Translate("Report") | html %]):</label>
+                <div class="Field">
+[% RenderBlockStart("ReportAttachmentRow") %]
+                    <span class="DownloadAttachment" title="[% Translate("Download Attachment") | html %]">
+                        <a href="[% Env("Baselink") %]Action=[% Env("Action") %];Subaction=DownloadAttachment;Filename=[% Data.Filename | uri %];Type=WorkOrderReport;WorkOrderID=[% Data.WorkOrderID | uri %]">[% Data.Filename | html %]</a>, [% Data.Filesize | html %]
+                    </span>
+                    <br />
+[% RenderBlockEnd("ReportAttachmentRow") %]
+                </div>
+                <div class="Clear"></div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+    Core.UI.Popup.Init();
+//]]></script>
+[% END %]
+[% RenderBlockEnd("TabContent") %]

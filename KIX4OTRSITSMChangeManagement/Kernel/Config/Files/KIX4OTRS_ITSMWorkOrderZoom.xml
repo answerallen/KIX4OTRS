@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<otrs_config version="1.0" init="KIXFramework">
+    <CVS>$Id$</CVS>
+
+    <ConfigItem Name="Frontend::Module###AgentITSMWorkOrderZoom" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for the agent interface.</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ModuleRegistration</SubGroup>
+        <Setting>
+            <FrontendModuleReg>
+                <GroupRo>itsm-change</GroupRo>
+                <Description>Workorder Zoom</Description>
+                <Title>Zoom</Title>
+                <NavBarName>ITSM Change</NavBarName>
+                <Loader>
+                    <CSS>ITSM.Agent.Default.css</CSS>
+                    <CSS>ITSM.ChangeManagement.Default.css</CSS>
+                    <CSS>ITSM.ChangeManagement.RTEContent.css</CSS>
+                    <JavaScript>thirdparty/jquery-ui-tabs-1.10.3/jquery.ui.tabs.js</JavaScript>
+                    <JavaScript>thirdparty/jquery-tablesorter-2.0.5/jquery.tablesorter.js</JavaScript>
+                    <JavaScript>Core.UI.Table.Sort.js</JavaScript>
+                    <JavaScript>Core.KIX4OTRS.TicketZoomTabs.js</JavaScript>
+                    <JavaScript>ITSM.Agent.ConfirmationDialog.js</JavaScript>
+                    <JavaScript>Core.UI.AllocationList.js</JavaScript>
+                    <JavaScript>Core.Agent.TableFilters.js</JavaScript>
+                </Loader>
+            </FrontendModuleReg>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="Frontend::Module###AgentITSMWorkOrderZoomTabOverview" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for the agent interface.</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ModuleRegistration</SubGroup>
+        <Setting>
+            <FrontendModuleReg>
+                <GroupRo>itsm-change</GroupRo>
+                <Description>WorkOrder Zoom</Description>
+                <Title>Zoom</Title>
+                <NavBarName>ITSM Change</NavBarName>
+            </FrontendModuleReg>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="Frontend::Module###AgentITSMWorkOrderZoomTabLinkedObjects" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for the agent interface.</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ModuleRegistration</SubGroup>
+        <Setting>
+            <FrontendModuleReg>
+                <GroupRo>itsm-change</GroupRo>
+                <Description>Change Zoom</Description>
+                <Title>Zoom</Title>
+                <NavBarName>ITSM Change</NavBarName>
+            </FrontendModuleReg>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="ITSMWorkOrder::Frontend::AgentITSMWorkOrderZoomTabLinkedObjects###QuickLink" Required="0" Valid="1">
+        <Description Translatable="1">Enable quick link in linked objects tab (different backends have to be defined first)</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>ITSMConfigItem::Frontend::ViewITSMWorkOrderZoomTabLinkedObjects</SubGroup>
+        <Setting>
+            <Option SelectedID="true">
+                <Item Key="false">No</Item>
+                <Item Key="true">Yes</Item>
+            </Option>
+        </Setting>
+    </ConfigItem>
+    <!-- ITSMChange ZOOM TAB REGISTRATION -->
+    <ConfigItem Name="AgentITSMWorkOrderZoomBackend###0100-Overview" Required="0" Valid="1">
+        <Description Translatable="1">Shows the most important information about this change</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ITSMChange::AgentITSMWorkOrderZoomTab</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Link">Action=AgentITSMWorkOrderZoomTabOverview;WorkOrderID=$Param{"WorkOrderID"}</Item>
+                <Item Key="Title">Overview</Item>
+                <Item Key="Description">Shows the most important information about this change</Item>
+                <Item Key="Block">ContentItem</Item>
+                <Item Key="Permission">ro</Item>
+                <Item Key="CountMethod"></Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="AgentITSMWorkOrderZoomBackend###0200-LinkedObjects" Required="0" Valid="1">
+        <Description Translatable="1">Defines parameters for the AgentITSMWorkOrderZoomTab "Linked Objects".</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ITSMChange::AgentITSMWorkOrderZoomTab</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Link">Action=AgentITSMWorkOrderZoomTabLinkedObjects;WorkOrderID=$Param{"WorkOrderID"}</Item>
+                <Item Key="Title">Linked Objects</Item>
+                <Item Key="Description">Shows all objects linked with this change</Item>
+                <Item Key="Block">ContentItem</Item>
+                <Item Key="Permission">ro</Item>
+                <Item Key="CountMethod">CallMethod::ChangeObject::CountLinkedObjects</Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+    <!-- EO TICKET ZOOM TAB REGISTRATION -->
+
+    <!-- KIXSidebar Configuration -->
+    <ConfigItem Name="Frontend::AgentITSMWorkOrderZoom::KIXSidebarBackend###0100-WorkOrderInfo" Required="0" Valid="1">
+        <Description Translatable="1">Parameters for the KIXSidebar backend WorkOrderInfo.</Description>
+        <Group>KIX4OTRS-ITSM</Group>
+        <SubGroup>Frontend::Agent::ITSMWorkOrder::ViewZoom</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Module">Kernel::Output::HTML::KIXSidebar::WorkOrderInfo</Item>
+                <Item Key="Title">Workorder Information</Item>
+                <Item Key="Description">Show or hide the change information</Item>
+                <Item Key="PlannedEffort">1</Item>
+                <Item Key="AccountedTime">1</Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+    <!-- EO KIXSidebar Configuration -->
+
+</otrs_config>

@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <CVS>$Id$</CVS>
+    <Name>KIX4OTRS</Name>
+    <Vendor>c.a.p.e. IT GmbH</Vendor>
+    <URL>http://www.cape-it.de/</URL>
+    <Description Lang="en">KIX4OTRS - Extension package for OTRS (f.k.a. OTRS::CiCS).</Description>
+    <Description Lang="de">KIX4OTRS - Erweiterungspaket fuer OTRS (zuvor bekannt als OTRS::CiCS).</Description>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Version>8.0.0</Version>
+    <Framework>5.0.11</Framework>
+    <BuildDate>?</BuildDate>
+    <BuildHost>?</BuildHost>
+    <PackageRequired Version="5.0.5">KIXCore</PackageRequired>
+    <Filelist>
+        <File Permission="644" Location="doc/CHANGES_KIX4OTRS.md"/>
+
+        <File Permission="755" Location="bin/kix.CheckModules.pl"/>
+        <File Permission="755" Location="bin/otrs.PendingJobs.pl"/>
+
+        <!-- the source file must not be contained in the package... -->
+        <!-- <File Permission="644" Location="doc/en/KIX4OTRS_SimpleDevelopmentAndAdminDocumentation.odt"/> -->
+        <!-- EO the source file must not be contained in the package... -->
+        <File Permission="644" Location="doc/en/KIX4OTRS_SimpleDevelopmentAndAdminDocumentation.pdf"/>
+        <File Permission="644" Location="doc/en/KIX4OTRS.pod"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_AgentArticleEdit.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_AgentTicketMergeToCustomer.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_AgentTicketAttachmentDownload.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_CustomerActions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_CustomerDashboard.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_CustomerFrontendAdoptions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_DashboardExtensions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_DynamicField.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Document.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Escalation.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_ExtendedFollowUp.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_FrameworkAdoptions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_FrontendMenuChanges.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_FrontendTicketRestrictions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_GenericAutoCompleteSearch.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_KIXSidebar.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Layout.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_LinkObject.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_LinkObjectPerson.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_PreferencesExtensions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Postmaster.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_QueueView.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_QuickTicket.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_QuickTicketAdmin.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_QuickTicketCustomer.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_ResponsibleAutoSetPerTicketType.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_RestrictTicketActionsOnMerged.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_ServiceAdoptions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_ServiceView.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_SwitchButton.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_SysConfigChangeLog.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TextModules.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Ticket.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketActions.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketOverview.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketStateWorkflow.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketZoom.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketZoomActionCommon.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketZoomDynamicField.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_TicketZoomTicketCoreData.xml"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Config/Files/KIX4OTRS_Toolbar.xml"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_Document.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRS.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSAgentArticleEdit.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSAgentTicketMergeToCustomer.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSCustomerFrontend.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSDependingDynamicField.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSPreferences.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSTemplateConfigurator.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSTicketZoomTab.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_KIX4OTRSLinkGraph.pm"/>
+<!-- OTRS-Todo: incomplete default translations -->
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_OTRSaddition.pm"/>
+<!-- EO OTRS-Todo -->
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_SwitchButton.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Language/de_TextModules.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminCustomerUser.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminDependingDynamicField.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminDynamicField.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminDynamicFieldObjectReference.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminDynamicFieldSysConfigSettingsAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminNotificationEvent.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminQueueTextModules.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminQuickTicketConfigurator.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminSLA.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminTextModules.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminTextModuleCategories.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AdminUser.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentArticleEdit.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentArticleCopyMove.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentCustomerSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentCustomerInformationCenter.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentCustomerInformationCenterSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentDashboardCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentGenericAutoCompleteSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentLinkGraph.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentLinkObject.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentLinkObjectUtils.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketActionCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketArticleFlagView.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketAttachmentDownload.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketBounce.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketBulk.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketCompose.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketCustomer.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketEmail.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketEmailOutbound.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketEmailQuick.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketEscalationView.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketForward.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketMerge.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketMergeToCustomer.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketMove.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketPhone.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketPhoneCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketPhoneQuick.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketPrint.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketProcess.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketQueue.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketService.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketStatusView.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoom.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoomTabActionCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoomTabArticle.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoomTabAttachments.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoomTabLinkedObjects.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/AgentTicketZoomTabProcess.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/BaseTicketTemplateHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerDashboardFurtherInformationAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerDashboardRemoteDBAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerTicketCustomerIDSelection.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerTicketMessage.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerTicketMessageQuickSelection.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/CustomerTicketZoom.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/DynamicFieldObjectReferenceAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/KIXSidebarChecklistAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/KIXSidebarCustomerInfoAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/KIXSidebarDynamicFieldAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/KIXSidebarLinkedPersonsAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/LinkObjectTableOrderAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/PopupSize.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/QuickLinkAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/ReuseArticleAttachmentsAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/SaveAsDraftAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/SearchprofilePreferencesAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/ServiceAssignedQueueAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/SwitchButton.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/ScratchpadAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/TextModuleAJAXHandler.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Modules/ToolbarSearchProfileAJAXHandler.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerDashboard/Calendar.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerDashboard/CustomerSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerDashboard/CustomerServices.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerDashboard/FurtherInformation.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerDashboard/RemoteDB.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerUser/CustomerIDs.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/Calendar.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/CustomerInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/CustomerUserList.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/KIXNotify.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/TicketGeneric.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/TicketQueueOverview.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/TicketStatsGeneric.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/TicketStatsGenericMonth.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/TicketStatsGenericWeek.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Dashboard/UserOffline.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/Checklist.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/CustomerInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/CustomizeForm.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/DynamicField.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/LinkedPersons.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/ReuseArticleAttachments.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/Scratchpad.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/TextModules.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/KIXSidebar/TicketInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/CustomerUser/GenericTicket.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Layout/KIX4OTRS.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Layout/LinkObject.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Layout/TextModules.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/LinkObject/Document.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/LinkObject/Person.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/LinkObject/Ticket.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Notification/AgentTicketEscalation.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/AdminDynamicFieldSysConfigSettings.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/AgentTicketPopupSize.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/AgentTicketMergeLink.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/AgentTicketSaveAsDraft.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/AgentTicketServiceAssignedQueueID.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/CustomerSearchResult.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/LinkObjectTargetIdentifier.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/OnlineHelp.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/OverrideQDataDisplayLimits.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/SwitchButton.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/OutputFilter/ToolbarSearchProfile.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/DefaultService.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/DefaultTicketQueue.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/DefaultTicketType.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/GenericMultiple.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/OutOfOfficeSubstitute.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/RemoveArticleFlags.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/SearchProfile.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/SearchProfileAutoSubscribe.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Preferences/TicketOverviewColumn.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/ServicePreferences/Selection.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Statistics/View.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/TicketOverview/Medium.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/TicketOverview/Preview.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/TicketOverview/Small.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/ToolBar/ArticleFlag.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/ToolBar/TicketSearchProfile.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/ArticleActionMenu.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/ArticleAttachmentList.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminCustomerUser.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminDependingDynamicField.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminDynamicFieldObjectReference.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminQueueTextModules.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminQuickTicketConfigurator.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminSLA.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminService.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminTextModules.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminTextModuleCategories.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AdminUser.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentArticleEdit.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentArticleCopyMove.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerDashboardCalendarOverview.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerDashboardCustomerSearch.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerDashboardCustomerServices.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerDashboardFurtherInformation.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerDashboardRemoteDB.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerSearch.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentCustomerTableView.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardCustomerInfo.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardCustomerUserList.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardKIXNotify.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardTicketGeneric.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardTicketQueueOverview.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentDashboardUserOffline.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarChecklist.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarChecklistTable.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarCustomerInfo.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarCustomizeForm.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarDynamicField.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarLinkedPersons.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarReuseArticleAttachments.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarScratchpad.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarTextModules.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarTicketInfo.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentLinkObject.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentPreferences.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentStatsOverview.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketActionCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketCompose.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketCustomer.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketEmail.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketEmailOutbound.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketForward.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketMerge.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketMergeToCustomer.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketMove.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketOverviewMedium.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketOverviewPreview.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketOverviewSmall.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketPhone.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketPhoneCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketProcess.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketProcessSmall.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketQueue.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketQueueDropDown.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketQueueTree.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketSearch.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketService.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketServiceDropDown.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketServiceTree.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoom.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabActionCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabArticle.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabAttachments.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabLinkedObjects.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabProcess.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerAssignedCustomerIDsList.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerHTMLHead.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerFooter.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerKIXSidebarTextModules.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerTicketCustomerIDSelection.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerTicketMessage.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerTicketZoom.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/CustomerTicketMessageQuickSelection.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/Error.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/Footer.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/FooterTicketZoomTab.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/Header.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/HTMLHead.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/LinkObject.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/Login.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/Notify.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/NotifyKIX4OTRS.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/PreferencesLinkObject.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/QuickLink.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/TextModulesSelection.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentZoomTabLinkGraph.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentZoomTabLinkGraphAdditional.tt"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/Output/HTML/Templates/Standard/AgentZoomTabLinkGraphIFrame.tt"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DB.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DependingDynamicField.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Document.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/LinkGraph.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SearchProfile.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Service.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SLA.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/TextModule.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/User.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/CustomerCompany.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/CustomerCompany/Preferences/DB.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/CustomerUser.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/CustomerUser/DB.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/CustomerUser/LDAP.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Document/FS.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/LinkObject/Document.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/LinkObject/Person.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/LinkObject/Ticket.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/PostMaster/FollowUp.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/PostMaster/NewTicket.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/PostMaster/Filter/ExtendedFollowUp.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/QuickLink.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/QuickLink/Person.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/QuickLink/Ticket.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SysConfig/Event/LogSysConfigChanges.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SysConfigChangeLog.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SysConfigChangeLog/File.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/SysConfigChangeLog/SysLog.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/TemplateGenerator.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Console/Command/Maint/FileWatcher/Synchronize.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DynamicField/Driver/ObjectReference/CustomerCompany.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DynamicField/Driver/ObjectReference/CustomerUser.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DynamicField/Driver/ObjectReference/User.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/DynamicField/Driver/ObjectReference.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Article.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/TicketACL.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/TicketExtensionsKIX4OTRS.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/TicketSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/TicketTemplateHandler.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/DependingDynamicFieldSelection.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/DisabledDynamicFields.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/HideAgentTicketMoveServiceQueueAssignment.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/HideProcessTicketTabs.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/LimitTemplateSelections.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/MatchActionRestrictions.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/MatchTicketDataRestrictions.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/RestrictTicketActionsOnMerged.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Acl/TicketStateWorkflow.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/AutoCreateLinkedPerson.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/CreateFAQEntry.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/DFTypeObjectReferenceAddLink.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/NotificationEvent/Transport/Email.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/NotificationEvent.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/NotificationToOutOfOfficeSubstitute.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/RemoveArticleFlagsOnTicketClose.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/ResponsibleAutoSetPerTickettype.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/StateUpdateOnWebrequestFollowUp.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketCreateChecklistFromTicketTemplate.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketQueueMoveWorkflowState.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketQueueMoveWorkflowTickettype.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketServiceQueueAssignment.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketStateWorkflowAutomaticStateAction.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketStateAutoUpdate.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketStateWorkflowForceState.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketStateWorkflowTypeUpdate.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/Event/TicketUnlockOnStateUpdate.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/ArticleSearchIndex/StaticDB.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/IndexAccelerator/RuntimeDB.pm"/>
+        <File Permission="644" Location="KIX4OTRS/Kernel/System/Ticket/IndexAccelerator/StaticDB.pm"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/Core.AgentTicketQueue.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/Core.AgentTicketService.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Agent.Admin.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.AgentCustomerDashboard.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.AgentLinkGraph.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.AgentTicketMergeToCustomer.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Default.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.DependingDynamicFields.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Footer.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Form.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Header.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.JSTree.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.OverviewControl.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.TextModules.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.TicketDetail.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.Table.css"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/Answered.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/columnselection.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/Esca_bg.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/EscaNear_bg.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/kix4otrs_logo.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/NoFwd.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/NoRe.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/textmodule.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/tm_category.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/toggle_side_arrow.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/zoom_sprite_extended.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/default/img/widget_bg_100.png"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/css/KIX4OTRS.Default.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/css/KIX4OTRS.Header.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/css/KIX4OTRS.Header.IE8.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/css/KIX4OTRS.TicketDetail.css"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/action_hover.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/action.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/header_background_knee.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/header_background.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/loader.gif"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/logo.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/logout_sprite.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/menu_separator.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Agent/KIX4OTRS/img/search.png"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.Control.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.Default.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.JSTree.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.PageLayout.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.Table.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.TextModules.css"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/css/KIX4OTRS.Widget.css"/>
+
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/GradientSmall.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/header_background.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/logo.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/loader.gif"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/menu_separator.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/textmodule.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/tm_category.png"/>
+        <File Permission="644" Location="KIX4OTRS/var/httpd/htdocs/skins/Customer/default/img/widget_bg_100.png"/>
+
+        <File Permission="644" Location="KIX4OTRSFAQ/Kernel/Config/Files/KIX4OTRS_FAQExtensions.xml"/>
+
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Config/Files/KIX4OTRS_GeneralCatalog.xml"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Language/de_KIX4OTRSGeneralCatalog.pm"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Modules/AdminDynamicFieldDropdownGeneralCatalog.pm"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Modules/AdminDynamicFieldMultiselectGeneralCatalog.pm"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Output/HTML/Templates/Standard/AdminDynamicFieldDropdownGeneralCatalog.tt"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/Output/HTML/Templates/Standard/AdminDynamicFieldMultiselectGeneralCatalog.tt"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/System/DynamicField/Driver/DropdownGeneralCatalog.pm"/>
+        <File Permission="644" Location="KIX4OTRSGeneralCatalog/Kernel/System/DynamicField/Driver/MultiselectGeneralCatalog.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Config/Files/KIX4OTRS_ITSMChangeZoom.xml"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Config/Files/KIX4OTRS_ITSMWorkOrderZoom.xml"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMChangeEdit.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMChangeZoom.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMChangeZoomTabOverview.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMChangeZoomTabLinkedObjects.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderAdd.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderEdit.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderReport.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderZoom.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderZoomTabOverview.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Modules/AgentITSMWorkOrderZoomTabLinkedObjects.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/KIXSidebar/ChangeInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/KIXSidebar/WorkOrderInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/LinkObject/ITSMChange.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/LinkObject/ITSMWorkOrder.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMChangeEdit.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMChangeZoom.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMChangeZoomTabOverview.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMChangeZoomTabLinkedObjects.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderAdd.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderEdit.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderReport.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderZoom.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderZoomTabOverview.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMWorkOrderZoomTabLinkedObjects.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarChangeInfo.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMChangeManagement/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarWorkOrderInfo.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Config/Files/KIX4OTRS_ConfigItemLink.xml"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Config/Files/KIX4OTRS_ITSMConfigItem.xml"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Config/Files/KIX4OTRS_ITSMConfigItemEvents.xml"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Config/Files/KIX4OTRS_ITSMConfigItemZoom.xml"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Config/Files/KIX4OTRS_LinkGraphITSMConfigItem.xml"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Language/de_KIX4OTRSITSMConfigManagement.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Language/de_OTRSCMDBaddition.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemCompare.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemEdit.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemSearch.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemZoom.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemZoomTabConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemZoomTabImages.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemZoomTabLinkedObjects.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentITSMConfigItemZoomTabLinkGraph.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/AgentLinkGraphITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/CustomerLinkObject.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/CustomerTicketMessage.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Modules/KIXSidebarLinkedCIsAJAXHandler.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/CustomerDashboard/LinkedCIs.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/CustomerUser/ConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/ITSMConfigItem/LayoutCIGroupAccess.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/ITSMConfigItem/OverviewCustom.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/ITSMConfigItem/OverviewSmall.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/KIXSidebar/ConfigItemInfo.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/KIXSidebar/LinkedCIs.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Layout/KIX4OTRSITSMConfigManagement.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Layout/LinkGraphITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/LinkObject/ITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Preferences/ConfigItemOverviewColumn.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/ToolBar/TicketSearchProfile.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentCustomerTableView.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemCompare.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemEdit.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemOverviewCustom.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemOverviewNavBar.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemOverviewSmall.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemSearch.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemZoom.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemZoomTabConfigItem.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemZoomTabImages.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemZoomTabLinkedObjects.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentLinkGraphAdditionalITSMConfigItem.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarConfigItemInfo.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/AgentKIXSidebarLinkedCIs.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/CustomerAssignedConfigItemList.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/CustomerDashboardLinkedCIs.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/CustomerTicketMessage.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/Output/HTML/Templates/Standard/KIXSideBarAssignedConfigItemList.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/DefinitionX.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/Event/Test.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/Permission/ItemClassGroupCheck.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/XML/Type/CIGroupAccess.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/ITSMConfigItemX.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ITSMConfigItem/VersionX.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/LinkObject/ITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/QuickLink/ITSMConfigItem.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/PreEventHandler.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/Kernel/System/ImportExport/ObjectBackend/ITSMConfigItem.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.AgentITSMConfigItemZoomTab.css"/>
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/var/httpd/htdocs/skins/Agent/default/css/KIX4OTRS.ITSM.Agent.Detail.css"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMConfigManagement/var/httpd/htdocs/js/Core.KIX4OTRS.ConfigItemZoomTabs.js"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/Language/de_OTRSITSMaddition.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/Modules/AdminSLA.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/Output/HTML/Templates/Standard/AdminService.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/Output/HTML/Templates/Standard/AdminSLA.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/System/Service.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMCore/Kernel/System/SLA.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Config/Files/KIX4OTRS_ITSMIncidentProblem.xml"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/AgentTicketActionCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/AgentTicketEmail.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/AgentTicketPhone.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/AgentTicketPrint.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/AgentTicketZoomTabActionCommon.pm"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Modules/CustomerTicketZoom.pm"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Output/HTML/Templates/Standard/AgentTicketActionCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Output/HTML/Templates/Standard/AgentTicketEmail.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Output/HTML/Templates/Standard/AgentTicketOverviewMedium.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Output/HTML/Templates/Standard/AgentTicketZoomTabActionCommon.tt"/>
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/Output/HTML/Templates/Standard/AgentTicketPhone.tt"/>
+
+        <File Permission="644" Location="KIX4OTRSITSMIncidentProblem/Kernel/System/Ticket/TicketExtensionsKIX4OTRSITSMIncidentProblem.pm"/>
+
+        <File Permission="755" Location="scripts/kix.create_filewatcher_meta.pl"/>
+        <File Permission="755" Location="scripts/kix.migrate_ticket_templates.pl"/>
+
+        <File Permission="644" Location="var/cron/kix.filewatcher.dist"/>
+
+        <File Permission="644" Location="var/httpd/htdocs/js/thirdparty/jquery-ui-tabs-1.10.3/jquery.ui.tabs.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.AJAX.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.CustomerInformationCenterSearch.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.CustomerSearch.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.Search.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.TableFilters.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.TicketZoom.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Form.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.JSON.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.AgentLinkGraph.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.AgentLinkGraphITSMConfigItem.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.AgentZoomTabLinkGraph.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Agent.CustomerDashboard.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Agent.DynamicFieldObjectReference.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Agent.TicketMergeLink.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Agent.TicketMergeToCustomer.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.CustomerDetails.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.CustomerIDsSelection.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Customer.TicketMergeLink.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Dialog.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.Form.Validate.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.GenericAutoCompleteSearch.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.KIXSidebar.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.KIXSidebarChecklist.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.KIXSidebarCustomerInfo.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.KIXSidebarDynamicField.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.LinkedPersons.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.TextModules.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.TicketZoomTabs.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.KIX4OTRS.TicketOverviewHighlight.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.Accordion.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.AdvancedChart.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.Datepicker.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.Dialog.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.InputFields.js"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.js"/>
+
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/icons/kix4otrs.ico"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/columnselection.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/direction-incoming.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/direction-internal.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/direction-outgoing.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/email-external.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/email-internal.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/email-notification-ext.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/email-notification-int.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/fax.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/inputfield_tree.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/note-external.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/note-internal.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/note-report.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/OK.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/phone.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/sms.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/webrequest.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/zoom_sprite_extended.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphComputer.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphComputerGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphDefault.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphDefaultGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphHardware.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphHardwareGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphSoftware.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphSoftwareGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphLocation.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphLocationGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphNetwork.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/GraphNetworkGray.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/IncGreen.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/IncRed.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/img/IncYellow.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/css/thirdparty/jstree-theme/default/d.gif"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Agent/default/css/thirdparty/jstree-theme/default/d.png"/>
+
+        <File Permission="644" Location="var/httpd/htdocs/skins/Customer/default/img/inputfield_tree.png"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Customer/default/css/thirdparty/jstree-theme/default/d.gif"/>
+        <File Permission="644" Location="var/httpd/htdocs/skins/Customer/default/css/thirdparty/jstree-theme/default/d.png"/>
+
+        <File Permission="644" Location="var/packagesetup/KIX4OTRS.pm"/>
+
+        <File Permission="644" Location="var/logo-KIX4OTRS.png"/>
+    </Filelist>
+    <DatabaseInstall>
+        <TableCreate Name="kix_article_flag">
+            <Column Name="article_id"  Required="true" Type="BIGINT"/>
+            <Column Name="article_key" Required="true" Type="VARCHAR" Size="50"/>
+            <Column Name="keywords"    Required="true" Type="VARCHAR" Size="200"/>
+            <Column Name="subject"     Required="true" Type="VARCHAR" Size="250"/>
+            <Column Name="note"        Required="true" Type="VARCHAR" Size="2000"/>
+            <Column Name="create_by"   Required="true" Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_customer_company_prefs">
+            <Column Name="user_id" Required="true" Type="VARCHAR" Size="250"/>
+            <Column Name="preferences_key"   Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="preferences_value" Required="false" Type="VARCHAR" Size="10000"/>
+        </TableCreate>
+        <TableCreate Name="kix_dep_dynamic_field">
+            <Column Name="id"               Required="true" Type="INTEGER" PrimaryKey="true"/>
+            <Column Name="name"             Required="true" Type="VARCHAR" Size="150"/>
+            <Column Name="valid_id"         Required="true" Type="INTEGER"/>
+            <Column Name="create_time"      Required="true" Type="DATE"/>
+            <Column Name="create_by"        Required="true" Type="INTEGER"/>
+            <Column Name="change_time"      Required="true" Type="DATE"/>
+            <Column Name="change_by"        Required="true" Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_dep_dynamic_field_prefs">
+            <Column Name="id"                   Required="true" Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="dependingfield_id"    Required="true" Type="INTEGER"/>
+            <Column Name="dynamicfield_id"      Required="true" Type="INTEGER"/>
+            <Column Name="value"                Required="true" Type="VARCHAR" Size="200"/>
+            <Column Name="parent_id"            Required="true" Type="INTEGER"/>
+            <ForeignKey ForeignTable="kix_dep_dynamic_field">
+                <Reference Local="dependingfield_id" Foreign="id"/>
+            </ForeignKey>
+        </TableCreate>
+        <TableCreate Name="kix_file_watcher">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="BIGINT"/>
+            <Column Name="parent_id" Required="false" Type="INTEGER"/>
+            <Column Name="fingerprint" Required="false" Size="32" Type="VARCHAR"/>
+            <Column Name="path" Required="false" Size="255" Type="VARCHAR"/>
+            <Column Name="path_lower" Required="false" Size="255" Type="VARCHAR"/>
+            <Column Name="name" Required="false" Size="255" Type="VARCHAR"/>
+            <Column Name="name_lower" Required="false" Size="255" Type="VARCHAR"/>
+            <Column Name="first_found" Required="false" Type="INTEGER"/>
+            <Column Name="last_found" Required="false" Type="INTEGER"/>
+            <Column Name="last_mod" Required="false" Type="INTEGER"/>
+            <Column Name="mod_type" Required="false" Type="INTEGER"/>
+            <Column Name="filesize" Required="false" Type="BIGINT"/>
+            <Column Name="outdated" Required="false" Type="INTEGER"/>
+            <Index Name="kix_file_watcher_parent_id">
+                <IndexColumn Name="parent_id"/>
+            </Index>
+            <Index Name="kix_file_watcher_fingerprint">
+                <IndexColumn Name="fingerprint"/>
+            </Index>
+            <Index Name="kix_file_watcher_path">
+                <IndexColumn Name="path"/>
+            </Index>
+            <Index Name="kix_file_watcher_name">
+                <IndexColumn Name="name"/>
+            </Index>
+            <Index Name="kix_file_watcher_name_lower">
+                <IndexColumn Name="name_lower"/>
+            </Index>
+            <Index Name="kix_file_watcher_last_mod">
+                <IndexColumn Name="last_mod"/>
+            </Index>
+            <Index Name="kix_file_watcher_filesize">
+                <IndexColumn Name="filesize"/>
+            </Index>
+        </TableCreate>
+        <TableCreate Name="kix_text_module">
+            <Column Name="id"          Required="true"  Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="name"        Required="true"  Type="VARCHAR" Size="80"/>
+            <Column Name="text"        Required="false" Type="VARCHAR" Size="65535"/>
+            <Column Name="language"    Required="false" Type="VARCHAR" Size="8"/>
+            <Column Name="keywords"    Required="false" Type="VARCHAR" Size="200"/>
+            <Column Name="comment1"    Required="false" Type="VARCHAR" Size="250"/>
+            <Column Name="comment2"    Required="false" Type="VARCHAR" Size="250"/>
+            <Column Name="subject"     Required="false" Type="VARCHAR" Size="250"/>
+            <Column Name="f_agent"     Required="false" Type="INTEGER" Default="0"/>
+            <Column Name="f_customer"  Required="false" Type="INTEGER" Default="0"/>
+            <Column Name="f_public"    Required="false" Type="INTEGER" Default="0"/>
+            <Column Name="valid_id"    Required="true"  Type="INTEGER"/>
+            <Column Name="create_time" Required="true"  Type="DATE"/>
+            <Column Name="create_by"   Required="true"  Type="INTEGER"/>
+            <Column Name="change_time" Required="true"  Type="DATE"/>
+            <Column Name="change_by"   Required="true"  Type="INTEGER"/>
+            <Index Name="kix_text_module_name">
+                <IndexColumn Name="name"/>
+            </Index>
+            <Index Name="kix_text_module_keywords">
+                <IndexColumn Name="keywords"/>
+            </Index>
+            <Index Name="kix_text_module_language">
+                <IndexColumn Name="language"/>
+            </Index>
+            <Index Name="kix_text_module_comment1">
+                <IndexColumn Name="comment1"/>
+            </Index>
+            <Index Name="kix_text_module_comment2">
+                <IndexColumn Name="comment2"/>
+            </Index>
+        </TableCreate>
+        <TableCreate Name="kix_text_module_object_link">
+            <Column Name="text_module_id" Required="true" Type="INTEGER"/>
+            <Column Name="object_type"    Required="true" Type="VARCHAR" Size="50"/>
+            <Column Name="object_id"      Required="true" Type="INTEGER"/>
+            <Column Name="create_time"    Required="true" Type="DATE"/>
+            <Column Name="create_by"      Required="true" Type="INTEGER"/>
+            <Column Name="change_time"    Required="true" Type="DATE"/>
+            <Column Name="change_by"      Required="true" Type="INTEGER"/>
+            <ForeignKey ForeignTable="kix_text_module">
+                <Reference Local="text_module_id" Foreign="id"/>
+            </ForeignKey>
+            <Index Name="kix_text_module_object_link_object_type">
+                <IndexColumn Name="object_type"/>
+            </Index>
+            <Index Name="kix_text_module_object_link_object_id">
+                <IndexColumn Name="object_id"/>
+            </Index>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_notes">
+            <Column Name="ticket_id"   Required="true"  Type="BIGINT"/>
+            <Column Name="note"        Required="false" Type="VARCHAR" Size="2000"/>
+            <Column Name="create_time" Required="true"  Type="DATE"/>
+            <Column Name="create_by"   Required="true"  Type="INTEGER"/>
+            <Column Name="change_time" Required="true"  Type="DATE"/>
+            <Column Name="change_by"   Required="true"  Type="INTEGER"/>
+            <ForeignKey ForeignTable="ticket">
+                <Reference Local="ticket_id" Foreign="id"/>
+            </ForeignKey>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_template">
+            <Column Name="id"          Required="true" Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="name"        Required="true" Type="VARCHAR" Size="150"/>
+            <Column Name="valid_id"    Required="true" Type="INTEGER"/>
+            <Column Name="create_time" Required="true" Type="DATE"/>
+            <Column Name="create_by"   Required="true" Type="INTEGER"/>
+            <Column Name="change_time" Required="true" Type="DATE"/>
+            <Column Name="change_by"   Required="true" Type="INTEGER"/>
+            <Column Name="f_agent"     Required="false" Type="INTEGER"/>
+            <Column Name="f_customer"  Required="false" Type="INTEGER"/>
+            <Unique Name="kix_ticket_template_name">
+                <UniqueColumn Name="name"/>
+            </Unique>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_template_prefs">
+            <Column Name="template_id"       Required="true"  Type="INTEGER"/>
+            <Column Name="preferences_key"   Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="preferences_value" Required="false" Type="VARCHAR" Size="10000"/>
+            <ForeignKey ForeignTable="kix_ticket_template">
+                <Reference Local="template_id" Foreign="id"/>
+            </ForeignKey>
+        </TableCreate>
+        <TableCreate Name="kix_text_module_category">
+            <Column Name="id"          Required="true"  Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="name"        Required="true"  Type="VARCHAR" Size="2000"/>
+            <Column Name="create_time" Required="true"  Type="DATE"/>
+            <Column Name="create_by"   Required="true"  Type="INTEGER"/>
+            <Column Name="change_time" Required="true"  Type="DATE"/>
+            <Column Name="change_by"   Required="true"  Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_search_profile">
+            <Column Name="category" Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="name"     Required="true"  Type="VARCHAR" Size="255"/>
+            <Column Name="state"    Required="true"  Type="VARCHAR" Size="32"/>
+            <Column Name="login"    Required="true"  Type="VARCHAR" Size="64"/>
+        </TableCreate>
+        <TableCreate Name="kix_link_graph">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="INTEGER"/>
+            <Column Name="name" Required="true" Size="250" Type="VARCHAR"/>
+            <Column Name="object_id" Required="true" Type="INTEGER"/>
+            <Column Name="object_type" Required="true" Size="50" Type="VARCHAR"/>
+            <Column Name="layout" Required="true" Type="VARCHAR" Size="65535"/>
+            <Column Name="config" Required="true" Size="2500" Type="VARCHAR"/>
+            <Column Name="create_time" Required="true" Type="DATE"/>
+            <Column Name="create_by" Required="true" Type="INTEGER"/>
+            <Column Name="change_time" Required="true" Type="DATE"/>
+            <Column Name="change_by" Required="true" Type="INTEGER"/>
+            <Index Name="kix_link_graph_object_id_object_type">
+                <IndexColumn Name="object_id"/>
+                <IndexColumn Name="object_type"/>
+            </Index>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_checklist">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="INTEGER"/>
+            <Column Name="ticket_id" Required="true" Type="BIGINT"/>
+            <Column Name="task" Required="true" Type="VARCHAR" Size="256"/>
+            <Column Name="state" Required="true" Type="VARCHAR" Size="32"/>
+            <Column Name="position" Required="true" Type="INTEGER"/>
+            <Index Name="kix_ticket_checklist_ticket_id">
+                <IndexColumn Name="ticket_id"/>
+            </Index>
+        </TableCreate>
+        <Insert Table="link_type">
+            <Data Key="name" Type="Quote">Agent</Data>
+            <Data Key="valid_id">1</Data>
+            <Data Key="create_time">current_timestamp</Data>
+            <Data Key="create_by">1</Data>
+            <Data Key="change_time">current_timestamp</Data>
+            <Data Key="change_by">1</Data>
+        </Insert>
+        <Insert Table="link_type">
+            <Data Key="name" Type="Quote">Customer</Data>
+            <Data Key="valid_id">1</Data>
+            <Data Key="create_time">current_timestamp</Data>
+            <Data Key="create_by">1</Data>
+            <Data Key="change_time">current_timestamp</Data>
+            <Data Key="change_by">1</Data>
+        </Insert>
+        <Insert Table="link_type">
+            <Data Key="name" Type="Quote">3rdParty</Data>
+            <Data Key="valid_id">1</Data>
+            <Data Key="create_time">current_timestamp</Data>
+            <Data Key="create_by">1</Data>
+            <Data Key="change_time">current_timestamp</Data>
+            <Data Key="change_by">1</Data>
+        </Insert>
+        <Insert Table="link_object">
+            <Data Key="name" Type="Quote">Person</Data>
+        </Insert>
+        <TableAlter Name="user_preferences">
+            <ColumnChange NameOld="preferences_value" NameNew="preferences_value" Type="varchar" Size="1000" Required="0"/>
+        </TableAlter>
+
+    </DatabaseInstall>
+    <DatabaseReinstall></DatabaseReinstall>
+    <DatabaseUpgrade>
+        <TableCreate Name="kix_ticket_checklist" Version="7.0.80">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="INTEGER"/>
+            <Column Name="ticket_id" Required="true"  Type="BIGINT"/>
+            <Column Name="task" Required="true"  Type="VARCHAR" Size="256"/>
+            <Column Name="state" Required="true"  Type="VARCHAR" Size="32"/>
+            <Column Name="position" Required="true" Type="INTEGER"/>
+            <Index Name="kix_ticket_checklist_ticket_id">
+                <IndexColumn Name="ticket_id"/>
+            </Index>
+        </TableCreate>
+        <TableAlter Name="kix_file_watcher" Version="7.0.3">
+            <ColumnChange NameOld="size" NameNew="filesize" Type="BIGINT" Required="false"/>
+        </TableAlter>
+        <TableCreate Name="kix_article_flag" Version="4.2.80">
+            <Column Name="article_id"  Required="true" Type="BIGINT"/>
+            <Column Name="article_key" Required="true" Type="VARCHAR" Size="50"/>
+            <Column Name="keywords"    Required="true" Type="VARCHAR" Size="200"/>
+            <Column Name="subject"     Required="true" Type="VARCHAR" Size="250"/>
+            <Column Name="note"        Required="true" Type="VARCHAR" Size="2000"/>
+            <Column Name="create_by"   Required="true" Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_customer_company_prefs" Version="7.99.81">
+            <Column Name="user_id" Required="true" Type="VARCHAR" Size="250"/>
+            <Column Name="preferences_key"   Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="preferences_value" Required="false" Type="VARCHAR" Size="10000"/>
+        </TableCreate>
+        <TableCreate Name="kix_dep_dynamic_field" Version="4.1.80">
+            <Column Name="id"               Required="true" Type="INTEGER" PrimaryKey="true"/>
+            <Column Name="name"             Required="true" Type="VARCHAR" Size="150"/>
+            <Column Name="valid_id"         Required="true" Type="INTEGER"/>
+            <Column Name="create_time"      Required="true" Type="DATE"/>
+            <Column Name="create_by"        Required="true" Type="INTEGER"/>
+            <Column Name="change_time"      Required="true" Type="DATE"/>
+            <Column Name="change_by"        Required="true" Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_dep_dynamic_field_prefs" Version="4.1.80">
+            <Column Name="id"                   Required="true" Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="dependingfield_id"    Required="true" Type="INTEGER"/>
+            <Column Name="dynamicfield_id"      Required="true" Type="INTEGER"/>
+            <Column Name="value"                Required="true" Type="VARCHAR" Size="200"/>
+            <Column Name="parent_id"            Required="true" Type="INTEGER"/>
+            <ForeignKey ForeignTable="kix_dep_dynamic_field">
+                <Reference Local="dependingfield_id" Foreign="id"/>
+            </ForeignKey>
+        </TableCreate>
+        <TableCreate Name="kix_text_module_object_link" Version="4.0.80">
+            <Column Name="text_module_id" Required="true" Type="INTEGER"/>
+            <Column Name="object_type"    Required="true" Type="VARCHAR" Size="50"/>
+            <Column Name="object_id"      Required="true" Type="INTEGER"/>
+            <Column Name="create_time"    Required="true" Type="DATE"/>
+            <Column Name="create_by"      Required="true" Type="INTEGER"/>
+            <Column Name="change_time"    Required="true" Type="DATE"/>
+            <Column Name="change_by"      Required="true" Type="INTEGER"/>
+            <ForeignKey ForeignTable="kix_text_module">
+                <Reference Local="text_module_id" Foreign="id"/>
+            </ForeignKey>
+            <Index Name="kix_text_module_object_link_object_type">
+                <IndexColumn Name="object_type"/>
+            </Index>
+            <Index Name="kix_text_module_object_link_object_id">
+                <IndexColumn Name="object_id"/>
+            </Index>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_template" Version="4.0.80">
+            <Column Name="id"          Required="true" Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="name"        Required="true" Type="VARCHAR" Size="150"/>
+            <Column Name="valid_id"    Required="true" Type="INTEGER"/>
+            <Column Name="create_time" Required="true" Type="DATE"/>
+            <Column Name="create_by"   Required="true" Type="INTEGER"/>
+            <Column Name="change_time" Required="true" Type="DATE"/>
+            <Column Name="change_by"   Required="true" Type="INTEGER"/>
+            <Column Name="f_agent"     Required="false" Type="INTEGER"/>
+            <Column Name="f_customer"  Required="false" Type="INTEGER"/>
+            <Unique Name="kix_ticket_template_name">
+                <UniqueColumn Name="name"/>
+            </Unique>
+        </TableCreate>
+        <TableCreate Name="kix_ticket_template_prefs" Version="4.0.80">
+            <Column Name="template_id"       Required="true"  Type="INTEGER"/>
+            <Column Name="preferences_key"   Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="preferences_value" Required="false" Type="VARCHAR" Size="10000"/>
+            <ForeignKey ForeignTable="kix_ticket_template">
+                <Reference Local="template_id" Foreign="id"/>
+            </ForeignKey>
+        </TableCreate>
+        <TableCreate Name="kix_text_module_category" Version="5.0.80">
+            <Column Name="id"          Required="true"  Type="INTEGER"  PrimaryKey="true" AutoIncrement="true"/>
+            <Column Name="name"        Required="true"  Type="VARCHAR" Size="2000"/>
+            <Column Name="create_time" Required="true"  Type="DATE"/>
+            <Column Name="create_by"   Required="true"  Type="INTEGER"/>
+            <Column Name="change_time" Required="true"  Type="DATE"/>
+            <Column Name="change_by"   Required="true"  Type="INTEGER"/>
+        </TableCreate>
+        <TableCreate Name="kix_search_profile" Version="5.0.80">
+            <Column Name="category" Required="true"  Type="VARCHAR" Size="100"/>
+            <Column Name="name"     Required="true"  Type="VARCHAR" Size="255"/>
+            <Column Name="state"    Required="true"  Type="VARCHAR" Size="32"/>
+            <Column Name="login"    Required="true"  Type="VARCHAR" Size="64"/>
+        </TableCreate>
+        <TableCreate Name="kix_link_graph" Version="6.1.0">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="INTEGER"/>
+            <Column Name="name" Required="true" Size="250" Type="VARCHAR"/>
+            <Column Name="object_id" Required="true" Type="INTEGER"/>
+            <Column Name="object_type" Required="true" Size="50" Type="VARCHAR"/>
+            <Column Name="layout" Required="true" Type="VARCHAR" Size="65535"/>
+            <Column Name="config" Required="true" Size="2500" Type="VARCHAR"/>
+            <Column Name="create_time" Required="true" Type="DATE"/>
+            <Column Name="create_by" Required="true" Type="INTEGER"/>
+            <Column Name="change_time" Required="true" Type="DATE"/>
+            <Column Name="change_by" Required="true" Type="INTEGER"/>
+            <Index Name="kix_link_graph_object_id_object_type">
+                <IndexColumn Name="object_id"/>
+                <IndexColumn Name="object_type"/>
+            </Index>
+        </TableCreate>
+        <TableAlter NameOld="kix_customer_company_preferences" NameNew="kix_customer_company_prefs" Version="7.99.82"/>
+        <TableAlter NameOld="kix_ticket_template_preferences" NameNew="kix_ticket_template_prefs" Version="4.1.1"/>
+        <TableAlter Name="user_preferences">
+            <ColumnChange NameOld="preferences_value" NameNew="preferences_value" Type="VARCHAR" Size="1000" Required="false"/>
+        </TableAlter>
+        <TableAlter Name="kix_text_module" Version="6.0.0">
+            <ColumnChange NameOld="text" NameNew="text" Type="VARCHAR" Size="65535" Required="false"/>
+        </TableAlter>
+        <TableAlter Name="kix_ticket_checklist" Version="7.0.81">
+            <ColumnAdd Name="position" Required="true" Type="INTEGER"/>
+        </TableAlter>
+    </DatabaseUpgrade>
+    <DatabaseUninstall>
+        <TableDrop Name="kix_dep_dynamic_field_prefs"/>
+        <TableDrop Name="kix_dep_dynamic_field"/>
+        <TableDrop Name="kix_ticket_template_prefs"/>
+        <TableDrop Name="kix_ticket_template"/>
+        <TableDrop Name="kix_text_module_object_link"/>
+        <TableDrop Name="kix_text_module"/>
+        <TableDrop Name="kix_ticket_notes"/>
+        <TableDrop Name="kix_link_graph"/>
+    </DatabaseUninstall>
+    <CodeInstall Type="post">
+
+        # create the package name
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+
+        $Kernel::OM->Get($CodeModule)->CodeInstall();
+
+    </CodeInstall>
+    <CodeReinstall Type="post">
+
+        # create the package name
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+
+        $Kernel::OM->Get($CodeModule)->CodeReinstall();
+
+    </CodeReinstall>
+    <CodeUpgrade Type="post">
+
+        # create the package name
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+
+        # discard internally stored object, so that the next access to object creates them newly
+        $Kernel::OM->ObjectsDiscard(
+            Objects            => [$CodeModule],
+            ForcePackageReload => 1,
+        );
+
+        $Kernel::OM->Get($CodeModule)->CodeUpgrade();
+
+    </CodeUpgrade>
+    <CodeUninstall Type="pre">
+
+        # create the package name
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+
+        $Kernel::OM->Get($CodeModule)->CodeUninstall();
+
+    </CodeUninstall>
+    <IntroInstall Type="pre" Title="Install Information" Lang="en"><![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to install the OTRS module KIX4OTRS. This extensions package provides several new and many improved functions for OTRS.<br/>
+        <br/>
+        <strong>Important Advice:</strong><br/>
+        <br/>
+        This package requires that the user which installs the package (i.e. webserver user) has got write permissions on file Config.pm and apache2-perl-startup.pl. If this is not the case, the installation will fail.You should then try to run "bin/kix.ManageMultipleCustomPackages.pl -a Register -n KIX4OTRS -p 0100" in order to get this extension running.<br/>
+        <br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroInstall>
+    <IntroInstall Type="post" Title="Installation Information" Lang="en"><![CDATA[
+        <br/>
+        <strong>Important Advice:</strong>
+        <br/>
+        <br/>
+        If you are using OTRS with modperl, the webserver must be restarted now. Please do this before you continue the use of this OTRS installation.
+        <br/>
+        <br/>
+        Furthermore you must also delete your OTRS-cache and rebuild your configuration before you continue the use of this OTRS installation.
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroInstall>
+    <IntroUpgrade Type="pre" Title="Upgrade Information" Lang="en"><![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to upgrade the KIX4OTRS extensions package for OTRS.<br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroUpgrade>
+    <IntroUpgrade Type="post" Title="Upgrade Information" Lang="en"><![CDATA[
+        <br/>
+        <strong>Important Advice:</strong>
+        <br/>
+        <br/>
+        If you are using OTRS with modperl, the webserver must be restarted now. Please do this before you continue the use of this OTRS installation.
+        <br/>
+        <br/>
+        Furthermore you must also delete your OTRS-cache and rebuild your configuration before you continue the use of this OTRS installation.
+        <br/>
+        <br/>
+        If you were using Quick Ticket Templates, old templates must be migrated, before you can use them again.
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroUpgrade>
+    <IntroUninstall Type="pre" Title="Uninstallation Information" Lang="en"><![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to UNINSTALL the KIX4OTRS extensions package for OTRS.<br/>
+        <br/>
+        <strong>Important Advice:</strong><br/>
+        <br/>
+        All KIX4OTRS related database tables will be dropped. Ticket notes, person- and document links, text module configuration is going to be permanently deleted also in case of reinstallation.<br/>
+        <br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroUninstall>
+</otrs_package>

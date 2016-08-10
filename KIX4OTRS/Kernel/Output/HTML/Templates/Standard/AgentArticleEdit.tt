@@ -1,0 +1,215 @@
+# --
+# AgentArticleEdit.tt - provides HTML form for article edit mask
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
+# KIX4OTRS-Extensions Copyright (C) 2006-2016 c.a.p.e. IT GmbH, http://www.cape-it.de
+#
+# written/edited by:
+# * Anna(dot)Litvinova(at)cape(dash)it(dot)de
+# * Martin(dot)Balzarek(at)cape(dash)it(dot)de
+# * Dorothea(dot)Doerffel(at)cape(dash)it(dot)de
+# * Rene(dot)Boehm(at)cape(dash)it(dot)de
+# --
+# $Id$
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<form action="[% Env("CGIHandle") %]" method="post" enctype="multipart/form-data" name="compose" id="Compose" class="Validate PreventMultipleSubmits">
+    <input type="hidden" name="Action" value="[% Env("Action") %]"/>
+    <input type="hidden" name="Subaction" value="Store"/>
+    <input type="hidden" name="TicketID"  value="[% Data.TicketID | html %]"/>
+    <input type="hidden" name="ArticleID" value="[% Data.ArticleID | html %]"/>
+    <input type="hidden" name="FormID" value="[% Data.FormID | html %]"/>
+
+    <div class="LayoutPopup ARIARoleMain">
+        <div class="Header">
+            <h1>[% Translate("Edit article") | html %]: #[% Data.Count | html %] - [% Data.Subject | html %] </h1>
+
+[% RenderBlockStart("TicketBack") %]
+            <p>
+                <a class="CancelClosePopup" href="#">[% Translate("Cancel & close") | html %]</a>
+            </p>
+[% RenderBlockEnd("TicketBack") %]
+[% RenderBlockStart("PropertiesLock") %]
+            <p>
+                [% Translate("The ticket has been locked") | html %].
+                <a class="UndoClosePopup" href="[% Env("Baselink") %]Action=AgentTicketLock;Subaction=Unlock;TicketID=[% Data.TicketID %];[% Env("ChallengeTokenParam") | html %]">
+                    [% Translate("Undo & close window") | html %]
+                </a>
+            </p>
+[% RenderBlockEnd("PropertiesLock") %]
+
+        </div>
+        <div class="Content">
+
+            <fieldset class="TableLike FixedLabel">
+
+[% RenderBlockStart("CreateDate") %]
+                <label class="Mandatory" for="Created"><span class="Marker">*</span>[% Translate("Created") | html %]:</label>
+                <div class="Field">
+                    [% Data.DateString %]
+                    <div id="DayServerError" class="TooltipErrorMessage"><p>[% Translate("Date invalid!") | html %]</p></div>
+                    <div id="HourServerError" class="TooltipErrorMessage"><p>[% Translate("Date invalid!") | html %]</p></div>
+                </div>
+                <div class="Clear"></div>
+[% RenderBlockEnd("CreateDate") %]
+
+[% RenderBlockStart("Note") %]
+                <label class="Mandatory" for="Subject"><span class="Marker">*</span>[% Translate("Subject") | html %]:</label>
+                <div class="Field">
+                    <input type="text" id="Subject" name="Subject" value="[% Data.Subject | html %]" class="W75pc [% Data.SubjectRequired %] [% Data.SubjectInvalid %]"/>
+                    <div id="SubjectError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                    <div id="SubjectServerError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                </div>
+                <div class="Clear"></div>
+
+[% RenderBlockStart("TicketOptions") %]
+# KIX4OTRS-capeIT
+#                <label>[% Translate("Options") | html %]:</label>
+#                <div class="Field">
+                <label for="Options">[% Translate("Options") | html %]:</label>
+                <div class="Options Field">
+# EO KIX4OTRS-capeIT
+
+<!-- OutputFilterHook_TicketOptionsBegin -->
+
+[% RenderBlockStart("SpellCheck") %]
+                    <a href="#" id="OptionSpellCheck">[ [% Translate("Spell check") | html %] ]</a>
+[% RenderBlockEnd("SpellCheck") %]
+
+<!-- OutputFilterHook_TicketOptionsEnd -->
+
+                </div>
+                <div class="Clear"></div>
+[% RenderBlockEnd("TicketOptions") %]
+
+<!-- OutputFilterHook_NoTicketOptionsFallback -->
+
+[% RenderBlockStart("RichTextLabel") %]
+                <label for="RichText">[% Translate("Text") | html %]:</label>
+[% RenderBlockEnd("RichTextLabel") %]
+[% RenderBlockStart("RichTextLabelMandatory") %]
+                <label class="Mandatory" for="RichText"><span class="Marker">*</span>[% Translate("Text") | html %]:</label>
+[% RenderBlockEnd("RichTextLabelMandatory") %]
+
+                <div class="RichTextField">
+[% RenderBlockStart("RichText") %]
+[% InsertTemplate("RichTextEditor.tt") %]
+[% RenderBlockEnd("RichText") %]
+                    <textarea id="RichText" class="RichText Validate_Required [% Data.BodyInvalid | html %]" name="Body" rows="15" cols="[% Config("Ticket::Frontend::TextAreaEmail") %]">[% Data.Body %]</textarea>
+                    <div id="RichTextError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                    <div id="RichTextServerError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                </div>
+                <div class="Clear"></div>
+
+# KIX4OTRS-capeIT
+#                <label>[% Translate("Attachment") | html %]:</label>
+#                <div class="Field">
+                <label for="FileUpload">[% Translate("Attachment") | html %]:</label>
+                <div class="Field FileUpload">
+# EO KIX4OTRS-capeIT
+                    <ul>
+[% RenderBlockStart("Attachment") %]
+                        <li>
+                            [% Data.Filename | html %] ([% Data.Filesize | html %])
+                            <button type="button" id="AttachmentDeleteButton[% Data.FileID | html %]" name="AttachmentDeleteButton[% Data.FileID | html %]" value="[% Translate("Delete") | html %]" class="SpacingLeft">[% Translate("Delete") | html %]</button>
+                            <input type="hidden" id="AttachmentDelete[% Data.FileID | html %]" name="AttachmentDelete[% Data.FileID | html %]" />
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+    $('#AttachmentDeleteButton[% Data.FileID | html %]').bind('click', function () {
+        var $Form = $('#AttachmentDeleteButton[% Data.FileID | html %]').closest('form');
+        $('#AttachmentDelete[% Data.FileID | html %]').val(1);
+        Core.Form.Validate.DisableValidation($Form);
+        $Form.trigger('submit');
+    });
+//]]></script>
+[% END %]
+                        </li>
+[% RenderBlockEnd("Attachment") %]
+                        <li>
+# KIX4OTRS-capeIT
+#                           <input id="FileUpload" name="FileUpload" type="file" size="40" />
+                            <input name="FileUpload" id="FileUpload" type="file" size="30" />
+# EO KIX4OTRS-capeIT
+                            <input type="hidden" id="AttachmentUpload" name="AttachmentUpload" value="0" />
+                            <input type="hidden" id="AttachmentChanged" name="AttachmentChanged" value="$QData{"AttachmentChanged"}" />
+                        </li>
+                    </ul>
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+    $('#FileUpload').bind('change', function (Event) {
+        var $Form = $('#FileUpload').closest('form');
+        Core.Form.Validate.DisableValidation($Form);
+        $Form.find('#AttachmentUpload').val('1').end().submit();
+    });
+//]]></script>
+[% END %]
+                </div>
+                <div class="Clear"></div>
+[% RenderBlockEnd("Note") %]
+
+[% RenderBlockStart("ArticleType") %]
+                        <label for="ArticleTypeID">[% Translate("Note type") | html %]:</label>
+                        <div class="Field">
+                            [% Data.ArticleTypeStrg %]
+                        </div>
+                        <div class="Clear"></div>
+[% RenderBlockEnd("ArticleType") %]
+
+[% RenderBlockStart("DynamicField") %]
+                <div class="Row Row_DynamicField_[% Data.Name | html %]">
+                    [% Data.Label %]
+                    <div class="Field">
+                        [% Data.Field %]
+                    </div>
+                    <div class="Clear"></div>
+                </div>
+[% RenderBlockEnd("DynamicField") %]
+
+# example of how to use fixed dynamic field blocks for customizations
+# Note: Field1 and Field2 are the names of the fields and had to be replaced with the actual
+# field names
+#[% RenderBlockStart("DynamicField_Field1") %]
+#                <div class="Row Row_DynamicField_[% Data.Name | html %]">
+#                    [% Data.Label %]
+#                    <div class="Field">
+#                        [% Data.Field %]
+#                    </div>
+#                    <div class="Clear"></div>
+#                </div>
+#[% RenderBlockEnd("DynamicField_Field1") %]
+#[% RenderBlockStart("DynamicField_Field2") %]
+#                <div class="Row Row_DynamicField_[% Data.Name | html %]">
+#                    [% Data.Label %]
+#                    <div class="Field">
+#                        [% Data.Field %]
+#                    </div>
+#                    <div class="Clear"></div>
+#                </div>
+#[% RenderBlockEnd("DynamicField_Field2") %]
+
+[% RenderBlockStart("TimeUnitsLabel") %]
+                <label for="TimeUnits">[% Translate("Time units") | html %] [% Translate(Config("Ticket::Frontend::TimeUnits")) | html %]:</label>
+[% RenderBlockEnd("TimeUnitsLabel") %]
+[% RenderBlockStart("TimeUnitsLabelMandatory") %]
+                <label class="Mandatory" for="TimeUnits"><span class="Marker">*</span>[% Translate("Time units") | html %] [% Translate(Config("Ticket::Frontend::TimeUnits")) | html %]:</label>
+[% RenderBlockEnd("TimeUnitsLabelMandatory") %]
+[% RenderBlockStart("TimeUnits") %]
+                <div class="Field">
+                    <input type="text" name="TimeUnits" id="TimeUnits" value="[% Data.TimeUnits | html %]" class="W50pc Validate_TimeUnits [% Data.TimeUnitsRequired | html %] [% Data.TimeUnitsInvalid | html %]"/>
+                    <div id="TimeUnitsError" class="TooltipErrorMessage"><p>[% Translate("Invalid time!") | html %]</p></div>
+                    <div id="TimeUnitsServerError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                </div>
+                <div class="Clear"></div>
+[% RenderBlockEnd("TimeUnits") %]
+# KIX4OTRS-capeIT
+                <div class="EndOfForm"></div>
+# EO KIX4OTRS-capeIT
+            </fieldset>
+        </div>
+        <div class="Footer">
+        <button class="CallForAction Primary" id="submitRichText" accesskey="g" title="[% Translate("Submit") | html %] (g)" type="submit" value="[% Translate("Submit") | html %]"><span><i class="fa fa-check"></i> [% Translate("Submit") | html %]</span></button>
+    </div>
+</form>

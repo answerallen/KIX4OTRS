@@ -1,0 +1,135 @@
+# --
+# Copyright (C) 2001-2016 OTRS AG, http://otrs.com/
+# KIX4OTRS-Extensions Copyright (C) 2006-2016 c.a.p.e. IT GmbH, http://www.cape-it.de
+#
+# written/edited by:
+# * Stefan(dot)Mehlig(at)cape(dash)it(dot)de
+# * Torsten(dot)Thau(at)cape(dash)it(dot)de
+# * Rene(dot)Boehm(at)cape(dash)it(dot)de
+# * Martin(dot)Balzarek(at)cape(dash)it(dot)de
+# * Dorothea(dot)Doerffel(at)cape(dash)it(dot)de
+# --
+# $Id$
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<div class="MainBox ARIARoleMain">
+    <div class="ClearLeft"></div>
+    <div class="Headline">
+        <div class="Flag" title="[% Translate(Data.ChangeState) | html %]">
+            <span class="[% Data.ChangeStateSignal | html %]">[% Translate(Data.ChangeState) | html %]</span>
+        </div>
+        <h1 title="[% Config("ITSMChange::Hook") %]: [% Data.ChangeNumber | html %] &ndash; [% Data.ChangeTitle | html %]">
+            [% Config("ITSMChange::Hook") %]: [% Data.ChangeNumber | html %] <span>&mdash;</span> [% Data.ChangeTitle | truncate(70) | html %]
+        </h1>
+    </div>
+
+    <div class="LayoutFixedSidebar SidebarLast">
+        <div class="SidebarColumn">
+# KIX4OTRS-capeIT
+# moved content for change info into separate module
+[% RenderBlockStart("Sidebar") %]
+          [% Data.KIXSidebarContent %]
+[% RenderBlockEnd("Sidebar") %]
+# EO KIX4OTRS-capeIT
+        </div>
+
+        <div class="ContentColumn">
+            <div class="ControlRow"></div>
+            <div class="ActionRow">
+                <ul class="Actions">
+[% RenderBlockStart("Menu") %]
+[% RenderBlockStart("MenuItem") %]
+                    <li>
+                        <a href="[% Env("Baselink") %][% Data.Link | Interpolate %]" id="Menu[% Data.MenuID | html %]" class="[% Data.MenuClass | html %]" title="[% Translate(Data.Description) | html %]">[% Translate(Data.Name) | html %]</a>
+                    </li>
+[% RenderBlockEnd("MenuItem") %]
+[% RenderBlockEnd("Menu") %]
+                </ul>
+            </div>
+# KIX4OTRS-capeIT
+# moved original content to tabs
+            <div id="ContentItemTabs">
+                <ul>
+[% RenderBlockStart("DataTabDataLink") %]
+                    <li><a href="[% Env("Baselink") %][% Data.Link %]" title="[% Data.Description | html %]">[% Translate(Data.Label) | html %] [% Data.LabelCount | html %]</a></li>
+[% RenderBlockEnd("DataTabDataLink") %]
+[% RenderBlockStart("DataTabDataPreloaded") %]
+                    <li><a href="#[% Data.Anchor %]" title="[% Data.Description | html %]">[% Translate(Data.Label) | html %] [% Data.LabelCount | html %]</a></li>
+[% RenderBlockEnd("DataTabDataPreloaded") %]
+                </ul>
+[% RenderBlockStart("DataTabContentPreloaded") %]
+                 <div id="[% Data.Anchor %]">
+                    [% Data.ContentStrg %]
+                </div>
+[% RenderBlockEnd("DataTabContentPreloaded") %]
+            </div>
+# EO KIX4OTRS-capeIT
+        </div>
+    </div>
+</div>
+
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+/*global ITSM: true */
+# KIX4OTRS-capeIT
+# moved content to tab
+# EO KIX4OTRS-capeIT
+
+    $('ul.Actions a.AsPopup').bind('click', function (Event) {
+# KIX4OTRS-capeIT
+        if ( $(this).attr('href').match(/AgentTicket(Phone|Email)/) ) {
+            window.open($(this).attr('href'),'_blank');
+        }
+        else {
+# EO KIX4OTRS-capeIT
+            Core.UI.Popup.OpenPopup($(this).attr('href'), 'Action');
+# KIX4OTRS-capeIT
+        }
+# EO KIX4OTRS-capeIT
+        return false;
+    });
+
+    $('ul.Actions a.HistoryBack').bind('click', function (Event) {
+        history.back();
+        return false;
+    });
+
+# KIX4OTRS-capeIT
+#    $('.MasterAction').bind('click', function (Event) {
+#        var $MasterActionLink = $(this).find('.MasterActionLink');
+#        // only act if the link was not clicked directly
+#        if (Event.target !== $MasterActionLink.get(0)) {
+#            window.location = $MasterActionLink.attr('href');
+#            return false;
+#        }
+#    });
+    // disable ajax/tab caching
+    $.ajaxSetup({ cache: false });
+
+    $('#ContentItemTabs').tabs({
+        create: function(event, ui) {
+            $(this).find('ul > li > a').attr('title', '');
+            $(this).find('div').html('<span class="AJAXLoader"></span>');
+        },
+        beforeActivate: function(event, ui) {
+            $(window).unbind();
+            $(this).find('div').html('<span class="AJAXLoader"></span>');
+        },
+        active: [% Data.SelectedTab %],
+        beforeLoad: function( event, ui ) {
+            ui.ajaxSettings.cache = false,
+            ui.ajaxSettings.error = function( xhr, status, index, anchor ) {
+                $(anchor.hash)
+                    .html("Couldn't load this tab. We'll try to fix this as soon as possible.");
+            }
+        }
+    });
+
+    Core.UI.InitWidgetActionToggle();
+# EO KIX4OTRS-capeIT
+//]]></script>
+[% END %]
